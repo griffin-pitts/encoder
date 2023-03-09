@@ -25,6 +25,14 @@ def encode(password):
             encoded += new
     return(encoded)
 
+# Giuliano added decode function
+def decode(encoded):
+    decoded_password = ""
+
+    for i in encoded[:]:
+        decoded_password = encoded + str(int(i)-3)
+
+    return decoded_password
 # Take input, provide encoding / decoding
 def main():
     while True:
@@ -38,7 +46,9 @@ def main():
             continue
         #Decode
         if option == 2:
-            print(f"The encoded password is {encoded}, and the original password is {password}.\n")
+            decoded = decoded(encoded)
+
+            print(f"The encoded password is {encoded}, and the original password is {decoded}.\n")
         #Exit
         if option == 3:
             return
